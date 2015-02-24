@@ -13,13 +13,6 @@ def defaultVal(var):
     else:
         return None
 
-def checkIndex(dic, num):
-    try:
-        dic[num]
-        return True
-    except KeyError:
-        return False
-
 def listcwd():
 	return os.listdir(os.getcwd())
 
@@ -67,15 +60,14 @@ def organize(tdir, vals):
     print "Target directory: ", os.getcwd()
     #Create a list of items in that dir
     cdel = listcwd()
-    #print "Current items:", cdel
     directories = checkType(cdel)
     #Create the dirs for the extensions if they don't exist
     print "---"
     for d in vals.values():
         if d not in cdel:
-            print "Directory will be created:",d
+            print "Directory will be created:", d
             os.mkdir(d)
-            cdel = os.listdir(os.getcwd())
+            cdel = listcwd()
     #Final dictionary
     fdict = {}
     #Point the files to their destiny folders
