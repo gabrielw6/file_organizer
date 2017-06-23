@@ -33,7 +33,7 @@ def checkType(element, what="file"):
         directory = what=="dir"
         fil = what=="file"
     finally:
-        if (fil==directory)==False:
+        if (fil==directory)==True:
             raise ValueError("'what' argument neither 'file' nor 'dir'")
 	try:
 		os.chdir(element)
